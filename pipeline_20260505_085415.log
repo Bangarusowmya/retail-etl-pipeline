@@ -1,0 +1,25 @@
+2026-05-05 08:54:15 | INFO     | src.pipeline | ============================================================
+2026-05-05 08:54:15 | INFO     | src.pipeline | RETAIL ETL PIPELINE — FULL LOAD MODE
+2026-05-05 08:54:15 | INFO     | src.pipeline | Started at: 2026-05-05 08:54:15
+2026-05-05 08:54:15 | INFO     | src.pipeline | ============================================================
+2026-05-05 08:54:15 | INFO     | src.extract | Loading full dataset from: data/raw/retail_sales_dataset.csv
+2026-05-05 08:54:15 | INFO     | src.extract | Loaded 1,000 rows × 9 columns
+2026-05-05 08:54:15 | INFO     | src.extract | Schema validation passed ✓
+2026-05-05 08:54:15 | INFO     | src.transform | Starting transform on 1,000 rows (batch_id=1)
+2026-05-05 08:54:15 | INFO     | src.transform | Validation removed 0 invalid records
+2026-05-05 08:54:15 | INFO     | src.transform | Feature engineering done — 17 total columns
+2026-05-05 08:54:15 | INFO     | src.transform | Transform complete: 1000 → 1000 rows (0.0% drop rate)
+2026-05-05 08:54:15 | INFO     | src.load | Writing 1,000 rows to 'retail_transactions' in data/retail_pipeline.db
+2026-05-05 08:54:15 | INFO     | src.load | DB write complete — 1,000 rows inserted
+2026-05-05 08:54:15 | INFO     | src.load | Saved 1,000 rows to data/processed/retail_sales_processed.csv (header=yes)
+2026-05-05 08:54:15 | INFO     | src.pipeline | ============================================================
+2026-05-05 08:54:15 | INFO     | src.pipeline | PIPELINE COMPLETE
+2026-05-05 08:54:15 | INFO     | src.pipeline |   Batches processed : 1
+  Batches failed    : 0
+  Rows extracted    : 1,000
+  Rows transformed  : 1,000
+  Rows loaded       : 1,000
+  Duration          : 0.09s
+  Success rate      : 100.0%
+2026-05-05 08:54:15 | INFO     | src.pipeline | ============================================================
+2026-05-05 08:54:15 | INFO     | main | All done. Exiting.

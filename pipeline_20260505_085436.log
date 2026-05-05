@@ -1,0 +1,6 @@
+2026-05-05 08:54:36 | INFO     | src.transform | Validation removed 0 invalid records
+2026-05-05 08:54:36 | INFO     | src.transform | Feature engineering done — 17 total columns
+2026-05-05 08:54:36 | INFO     | src.transform | Starting transform on 5 rows (batch_id=42)
+2026-05-05 08:54:36 | INFO     | src.transform | Validation removed 0 invalid records
+2026-05-05 08:54:36 | INFO     | src.transform | Feature engineering done — 17 total columns
+2026-05-05 08:54:36 | INFO     | src.transform | Transform complete: 5 → 5 rows (0.0% drop rate)

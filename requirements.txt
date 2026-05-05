@@ -1,0 +1,14 @@
+# Core pipeline dependencies
+pandas>=1.5.0
+numpy>=1.23.0
+PyYAML>=6.0
+
+# Database
+# sqlite3 is part of the Python standard library — no install needed
+
+# Testing
+pytest>=7.2.0
+pytest-cov>=4.0.0
+
+# Optional but useful for dev
+# ipykernel  # if you want to explore the data in Jupyter

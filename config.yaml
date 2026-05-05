@@ -1,0 +1,67 @@
+# -----------------------------------------------
+# Retail ETL Pipeline - Configuration
+# -----------------------------------------------
+# Tweak these values without touching the code.
+# Keep sensitive stuff (passwords etc.) in .env
+# -----------------------------------------------
+
+pipeline:
+  name: "retail_sales_etl"
+  version: "1.0.0"
+  batch_size: 100          # rows per streaming batch
+  batch_delay_seconds: 2   # simulated streaming delay
+  run_mode: "batch"        # options: batch | full
+
+paths:
+  raw_data: "data/raw/retail_sales_dataset.csv"
+  processed_data: "data/processed/retail_sales_processed.csv"
+  db_path: "data/retail_pipeline.db"
+  log_dir: "logs"
+
+extract:
+  chunk_size: 100
+  encoding: "utf-8"
+  date_column: "Date"
+
+transform:
+  # columns we actually care about — drop anything not in this list
+  expected_columns:
+    - "Transaction ID"
+    - "Date"
+    - "Customer ID"
+    - "Gender"
+    - "Age"
+    - "Product Category"
+    - "Quantity"
+    - "Price per Unit"
+    - "Total Amount"
+
+  # anything outside this range is suspicious
+  age_bounds:
+    min: 10
+    max: 100
+
+  # price sanity check
+  price_bounds:
+    min: 0
+    max: 50000
+
+  # feature engineering toggles — set false to skip
+  add_revenue_per_unit: true
+  add_age_group: true
+  add_day_of_week: true
+  add_month: true
+  add_high_value_flag: true
+  high_value_threshold: 500   # Total Amount above this = high-value order
+
+load:
+  db_table: "retail_transactions"
+  if_exists: "append"         # append | replace
+  chunksize: 500
+
+logging:
+  level: "INFO"               # DEBUG | INFO | WARNING | ERROR
+  format: "%(asctime)s | %(levelname)-8s | %(name)s | %(message)s"
+  date_format: "%Y-%m-%d %H:%M:%S"
+  log_to_file: true
+  log_to_console: true
